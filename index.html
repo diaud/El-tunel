@@ -73,9 +73,14 @@
     }
     .dpad-btn:active { background: rgba(162, 85, 255, 0.8); box-shadow: 0 0 20px rgba(162, 85, 255, 0.9); }
 
-    /* RESPONSIVIDAD MÓVIL */
     @media (max-width: 768px) {
-      #ui { font-size: 14px; bottom: 20px; padding-bottom: 120px; /* Evitar solapamiento con controles */ }
+      /* Se quita el anclaje inferior y se coloca arriba, debajo del botón de pausa */
+      #ui { 
+        font-size: 14px; 
+        bottom: auto; 
+        top: 60px; 
+        padding: 0 20px; 
+      }
       #blocker, #pauseMenu { font-size: 14px; }
       .menu-btn { font-size: 14px; padding: 10px 20px; }
       .warning-box { padding: 20px 30px; transform: translateY(-30px); }
