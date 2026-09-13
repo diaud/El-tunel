@@ -425,7 +425,7 @@
     const humanGroup = new THREE.Group();
     
     const hTorso = new THREE.Mesh(new THREE.BoxGeometry(0.48, 0.65, 0.26), humanMat);
-    hTorso.position.y = 1; hTorso.castShadow = true;
+    hTorso.position.y = 1.25; hTorso.castShadow = true;
     const hHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 16, 16), skinMat);
     hHead.position.y = 1.72; hHead.castShadow = true;
 
@@ -676,7 +676,7 @@
       { id: 'cat', speed: 2.5, camH: 0.45, camDist: 1.3, text: "Me acecha la sombra, con cuidado voy, ¿cuantas vidas tengo?" },
       { id: 'lizard', speed: 4.5, camH: 0.15, camDist: 0.65, text: "El mundo es roca fría hasta que toca el sol." },
       { id: 'insect', speed: 8.5, camH: 0.25, camDist: 0.75, text: "Mi adiccion es la luz, me distrae del camino." },
-      { id: 'stone', speed: 0.5, camH: 0.5, camDist: 1.5, text: "Mi permanencia me hace cambiar, me encuentro consciente y todo pasa, solo observo" },
+      { id: 'stone', speed: 0, camH: 0.5, camDist: 1.5, text: "Mi permanencia me hace cambiar, me encuentro consciente y todo pasa, solo observo" },
       { id: 'human', speed: 1, camH: 1.8, camDist: 5.0, text: "Inicio y final, Todo regresa al vacío..." }
     ];
     let currentLoop = 0; const ui = document.getElementById('ui');
@@ -684,7 +684,7 @@
     function setupLoop(index) {
       currentLoop = index; const state = LOOPS[index]; ui.innerText = state.text; state.timer = 0;
       
-      warningUI.style.opacity = '0';
+      warningUI.style.opacity = '0.3';
 
       if (index === 5) {
         isEnding = true; camYaw = Math.PI; camPitch = 0.2; 
@@ -750,7 +750,7 @@
                     allSucked = false;
                     const dist = obj.position.distanceTo(bhPos);
                     const speed = Math.max(0.5, 15 / (dist + 1)) * delta;
-                    obj.position.lerp(bhPos, speed); obj.scale.lerp(new THREE.Vector3(0,0,0), speed * 0.8);
+                    obj.position.lerp(bhPos, speed); obj.scale.lerp(new THREE.Vector3(0,0,0), speed * 0.7);
                     obj.rotation.x += delta; obj.rotation.y += delta * 2;
                 }
             });
@@ -931,7 +931,7 @@
             if (state.id !== 'insect') entities.insect.position.set(Math.sin(time * 2.5) * 0.8, 3.4 + Math.cos(time * 3) * 0.2, Math.sin(time * 3.5) * 0.8);
         }
 
-        if (state.id === 'stone') { state.timer += delta; if (state.timer > 6) setupLoop((currentLoop + 1) % LOOPS.length); }
+        if (state.id === 'stone') { state.timer += delta; if (state.timer > 10) setupLoop((currentLoop + 1) % LOOPS.length); }
 
         const targetCamPosition = new THREE.Vector3(
           activeObj.position.x + state.camDist * Math.cos(camPitch) * Math.sin(camYaw),
