@@ -425,7 +425,7 @@
     const humanGroup = new THREE.Group();
     
     const hTorso = new THREE.Mesh(new THREE.BoxGeometry(0.48, 0.65, 0.26), humanMat);
-    hTorso.position.y = 1.25; hTorso.castShadow = true;
+    hTorso.position.y = 0 hTorso.castShadow = true;
     const hHead = new THREE.Mesh(new THREE.SphereGeometry(0.16, 16, 16), skinMat);
     hHead.position.y = 1.72; hHead.castShadow = true;
 
@@ -444,12 +444,12 @@
     const handL = new THREE.Mesh(handGeo, skinMat); handL.position.set(0, -0.65, 0); handL.castShadow = true;
     armLPivot.add(armL, handL);
 
-    const legRPivot = new THREE.Group(); legRPivot.position.set(0.14, 0, 0); 
+    const legRPivot = new THREE.Group(); legRPivot.position.set(0.14, 0.95, 0); 
     const legR = new THREE.Mesh(legGeo, humanMat); legR.castShadow = true;
     const footR = new THREE.Mesh(footGeo, skinMat); footR.position.set(0, -0.75, 0); footR.castShadow = true;
     legRPivot.add(legR, footR);
 
-    const legLPivot = new THREE.Group(); legLPivot.position.set(-0.14, 0, 0); 
+    const legLPivot = new THREE.Group(); legLPivot.position.set(-0.14, 0.95, 0); 
     const legL = new THREE.Mesh(legGeo, humanMat); legL.castShadow = true;
     const footL = new THREE.Mesh(footGeo, skinMat); footL.position.set(0, -0.75, 0); footL.castShadow = true;
     legLPivot.add(legL, footL);
