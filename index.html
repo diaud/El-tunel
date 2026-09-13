@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>El Paso de Piedra - Controles Móviles</title>
+  <title>El Tunel</title>
   <style>
     body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #000; font-family: monospace; user-select: none; touch-action: none; }
     
@@ -54,7 +54,6 @@
     .warning-box h1 { color: #ffffff; margin: 15px 0; font-size: 40px; text-shadow: 0 0 15px #a255ff; }
     .warning-box p { color: #ff5555; font-size: 14px; margin: 0; letter-spacing: 1px; line-height: 1.5; font-weight: bold;}
 
-    /* Controles Táctiles (Móvil) */
     #mobilePauseBtn {
       display: none; position: absolute; top: 15px; right: 15px; z-index: 15;
       background: rgba(20, 0, 40, 0.6); border: 2px solid #a255ff; color: white;
@@ -91,7 +90,8 @@
   </style>
 </head>
 <body>
-  <!-- PANTALLA INICIAL -->
+
+  <!-- Inicio -->
   <div id="blocker">
     <span style="font-size: 24px; letter-spacing: 3px;"><b>EL TUNEL</b></span>
     <span style="font-size: 14px; opacity: 0.8; margin-top: 15px;">
@@ -157,7 +157,7 @@
     let endTimer = 0;     
     
     // Detección de Móvil
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || ('ontouchstart' in window);
+    const isMobile = /Android|we bOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || ('ontouchstart' in window);
     if (isMobile) {
         document.getElementById('mobileText').style.display = 'block';
         document.getElementById('desktopText').style.display = 'none';
@@ -444,12 +444,12 @@
     const handL = new THREE.Mesh(handGeo, skinMat); handL.position.set(0, -0.65, 0); handL.castShadow = true;
     armLPivot.add(armL, handL);
 
-    const legRPivot = new THREE.Group(); legRPivot.position.set(0.14, 0.95, 0); 
+    const legRPivot = new THREE.Group(); legRPivot.position.set(0.14, 0, 0); 
     const legR = new THREE.Mesh(legGeo, humanMat); legR.castShadow = true;
     const footR = new THREE.Mesh(footGeo, skinMat); footR.position.set(0, -0.75, 0); footR.castShadow = true;
     legRPivot.add(legR, footR);
 
-    const legLPivot = new THREE.Group(); legLPivot.position.set(-0.14, 0.95, 0); 
+    const legLPivot = new THREE.Group(); legLPivot.position.set(-0.14, 0, 0); 
     const legL = new THREE.Mesh(legGeo, humanMat); legL.castShadow = true;
     const footL = new THREE.Mesh(footGeo, skinMat); footL.position.set(0, -0.75, 0); footL.castShadow = true;
     legLPivot.add(legL, footL);
